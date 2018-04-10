@@ -25,11 +25,12 @@ public class GravarDepartamentoAction implements Action{
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException{
         String nome = request.getParameter("txtNome");
+        int idContato = Integer.parseInt(request.getParameter("txtIdContato"));
         if(nome.equals("")){
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Departamento departamento = new Departamento(nome);
+                Departamento departamento = new Departamento(nome, idContato);
                 DepartamentoDAO.getInstance().save(departamento);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

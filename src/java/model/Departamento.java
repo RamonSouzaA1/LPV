@@ -12,6 +12,26 @@ package model;
 public class Departamento {
     int id;
     String nome;
+    int idContato;
+
+    public Departamento(String nome, int idContato) {
+        this.nome = nome;
+        this.idContato = idContato;
+    }
+
+    public Departamento(int id, String nome, int idContato) {
+        this.id = id;
+        this.nome = nome;
+        this.idContato = idContato;
+    }
+
+    public int getIdContato() {
+        return idContato;
+    }
+
+    public void setIdContato(int idContato) {
+        this.idContato = idContato;
+    }
 
     public int getId() {
         return id;

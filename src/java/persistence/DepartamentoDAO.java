@@ -31,8 +31,8 @@ public class DepartamentoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into departamento (nome)"
-                    + " values ('" + departamento.getNome() + "')");
+            st.execute("insert into departamento (nome, id_contato)"
+                    + " values ('" + departamento.getNome() + "', '"+ departamento.getIdContato() +"')");
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -51,7 +51,8 @@ public class DepartamentoDAO {
             while (rs.next()){
                 Departamento departamento = new Departamento
                                    (rs.getInt("id"),
-                                    rs.getString("nome"));
+                                    rs.getString("nome"),
+                                    rs.getInt("id_contato"));
                 departamentos.add(departamento);
             }
         }catch (SQLException e) {
