@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Abr-2018 às 03:42
+-- Generation Time: 11-Abr-2018 às 16:37
 -- Versão do servidor: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -27,18 +27,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `contato` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `id` int(4) NOT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `contato`
+-- Estrutura da tabela `departamento`
 --
 
-INSERT INTO `contato` (`id`, `nome`, `email`) VALUES
-(1, 'Ramon', 'ramon@gmail.com'),
-(7, 'Kaio', 'kaio@msn.com');
+CREATE TABLE `departamento` (
+  `id` int(4) NOT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `id_contato` int(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -51,6 +55,13 @@ ALTER TABLE `contato`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `departamento`
+--
+ALTER TABLE `departamento`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_contato` (`id_contato`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -58,7 +69,12 @@ ALTER TABLE `contato`
 -- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `departamento`
+--
+ALTER TABLE `departamento`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
