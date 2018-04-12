@@ -11,6 +11,7 @@ import persistence.ContatoDAO;
 public class ApagarContatoAction implements Action{
     public ApagarContatoAction(){
     }
+    
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("textId");
         if (id.equals("")) {

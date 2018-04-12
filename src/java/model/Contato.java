@@ -6,6 +6,9 @@
 
 package model;
 
+import java.sql.SQLException;
+import persistence.ContatoDAO;
+
 /**
  *
  * @author Aluno
@@ -58,4 +61,9 @@ public class Contato {
         this.email = email;
     }
     
+    public static Contato obterContato(int idContato) 
+        throws ClassNotFoundException, SQLException 
+    {
+        return ContatoDAO.obterContato(idContato);
+    }
 }

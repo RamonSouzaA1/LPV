@@ -5,15 +5,18 @@
  */
 package model;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Ramon
  */
 public class Departamento {
-    int id;
-    String nome;
-    int idContato;
-
+    private int id;
+    private String nome;
+    private int idContato;
+    private Contato contato;
+    
     public Departamento(String nome, int idContato) {
         this.nome = nome;
         this.idContato = idContato;
@@ -65,6 +68,11 @@ public class Departamento {
         this.nome = nome;
     }
     
-    
+    public Contato getContato() throws SQLException, ClassNotFoundException {
+        if ((contato == null) && (idContato != 0)) {
+            contato = Contato.obterContato(idContato);
+        }
+        return contato;
+}
     
 }
